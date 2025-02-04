@@ -34,7 +34,7 @@ app.use('/api/categorys', CategoryRoutes)
 app.get('/', (req: Request, res: Response) => {
   res.send({
     status: true,
-    message: 'Server is now Live - Alhamdulillah',
+    message:'Hello',
   })
 })
 

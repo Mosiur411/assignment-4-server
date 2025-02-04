@@ -32,7 +32,7 @@ app.use('/api/categorys', category_routes_1.CategoryRoutes);
 app.get('/', (req, res) => {
     res.send({
         status: true,
-        message: 'Server is now Live - Alhamdulillah',
+        message: 'Hello',
     });
 });
 app.use(globalErrorHandler_1.globalErrorHandler);

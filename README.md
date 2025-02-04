@@ -1,13 +1,14 @@
-![Assignment-3](https://i.ibb.co.com/qNWgN9v/DALL-E-2024-12-19-21-40-45-A-detailed-illustration-capturing-the-essence-of-collaborative-problem-so.webp)
 
 <h1 align="center">
-  Assignment  project - 3 🚀
+  Assignment  project - 4 🚀
 </h1>
 
  # 📝 Blog Management API
 
-I developed a robust backend for a blog site enabling both **user** and **admin** operations, including full CRUD functionality, authentication, and authorization. Users can create, read, update, and delete their blogs, while admins have extended privileges to manage all content. Advanced features include search and filter capabilities for efficient content discovery. The backend is built with modern technologies: Node.js, Express.js, TypeScript, and MongoDB, ensuring scalability and type safety. JWT-based authentication secures user sessions, while role-based authorization protects resources. The application demonstrates clean architecture, modularity, and high performance, making it an efficient and secure solution for a blogging platform.
 
+I developed a powerful backend for a blogging platform, enabling both user and admin operations with full CRUD functionality, authentication, and authorization. Users can create, read, update, and delete their blogs, while admins have extended privileges to manage all content.
+
+Key features include advanced search and filtering for efficient content discovery. The backend is built using Node.js, Express.js, TypeScript, and MongoDB, ensuring scalability, type safety, and high performance. JWT-based authentication secures user sessions, while role-based authorization safeguards resources. Designed with clean architecture and modularity, this backend provides a robust, efficient, and secure foundation for a modern blogging platform.
 * * *
 
 
@@ -22,7 +23,8 @@ I developed a robust backend for a blog site enabling both **user** and **admin*
 *   **dotenv**
 *   **http-status-codes**
 *   **JWT**
-*   **bycrpt**
+*   **bycrpt**j
+*   **Stripe**
 
 
 * * *
@@ -63,6 +65,12 @@ I developed a robust backend for a blog site enabling both **user** and **admin*
 - **Delete Blog**: `DELETE /api/blogs/:id` (Blog owner only)
 - **View Blogs**: `GET /api/blogs` (Public API with search, sort, filter)
 
+### Caregory Management
+- **Create Blog**: `POST /api/categorys` 
+- **Update Blog**: `PATCH /api/categorys/:id` 
+- **Delete Blog**: `DELETE /api/categorys/:id` 
+- **View Blogs**: `GET /api/categorys` 
+
 ### Admin Actions
 - **Block User**: `PATCH /api/admin/users/:userId/block`
 - **Delete Any Blog**: `DELETE /api/admin/blogs/:id`
@@ -80,23 +88,9 @@ All errors are returned in a structured format with clear messages and status co
   "error": { "details" }
 }
 ```
-## 🛠 Installation
 
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/omarfarukesham/assignment-3.git
-   cd assignment-3.git
 
-## 👤 Author
 
-**Omar**  
-[GitHub](https://github.com/omarfarukesham) | [LinkedIn](https://www.linkedin.com/in/omar-faruk-reactjsdev/)
-
-## 📜 License
-
-This project is licensed under the [MIT License](LICENSE).
-
----
 
 Thank you for exploring this project! 🚀
 # assignment-4-server
