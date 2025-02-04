@@ -20,7 +20,7 @@ const createUser = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     return result;
 });
 const getUser = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield user_model_1.default.find();
+    const result = yield user_model_1.default.find({ role: 'user' });
     return result;
 });
 const getSingleUser = (id) => __awaiter(void 0, void 0, void 0, function* () {

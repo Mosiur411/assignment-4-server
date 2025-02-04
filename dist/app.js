@@ -14,6 +14,7 @@ const product_routes_1 = require("./module/product/product.routes");
 const order_routes_1 = require("./module/order/order.routes");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
+const category_routes_1 = require("./module/category/category.routes");
 const app = (0, express_1.default)();
 //parsers
 app.use(express_1.default.json());
@@ -27,6 +28,7 @@ app.use('/api/user', user_router_1.default);
 app.use('/api/blogs', blog_router_1.default);
 app.use('/api/products', product_routes_1.ProductRoutes);
 app.use('/api/order', order_routes_1.OrderRoutes);
+app.use('/api/categorys', category_routes_1.CategoryRoutes);
 app.get('/', (req, res) => {
     res.send({
         status: true,

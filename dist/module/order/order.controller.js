@@ -14,8 +14,25 @@ const order_service_1 = require("./order.service");
 const createOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const payload = req.body;
-        console.log('from Controller', payload);
         const result = yield order_service_1.OrderServices.createOrderIntoDB(payload);
+        res.status(200).json({
+            success: true,
+            message: 'Order created successfully',
+            data: result,
+        });
+    }
+    catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: 'Failed to create Order',
+        });
+    }
+});
+const CheckoutOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const payload = req.body;
+        const result = yield order_service_1.OrderServices.CheckoutOrderIntoDB(payload);
         res.status(200).json({
             success: true,
             message: 'Order created successfully',
@@ -137,5 +154,6 @@ exports.OrderControllers = {
     getSingleOrder,
     updateOrder,
     deleteOrder,
+    CheckoutOrder,
     getTotalOrderRevenue
 };

@@ -3,7 +3,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderModel = void 0;
 const mongoose_1 = require("mongoose");
 const orderSchema = new mongoose_1.Schema({
-    id: { type: String },
     email: {
         type: String,
         required: [true, 'Please provide your email'],
@@ -16,12 +15,26 @@ const orderSchema = new mongoose_1.Schema({
         },
         immutable: true,
     },
-    product: {
-        type: mongoose_1.Schema.Types.ObjectId,
-        ref: 'Product',
-        required: [true, 'Product is required']
-    },
-    quantity: {
+    products: [
+        {
+            product: {
+                type: mongoose_1.Schema.Types.ObjectId,
+                ref: 'Product',
+                required: [true, 'Product is required'],
+            },
+            quantity: {
+                type: Number,
+                required: [true, 'Quantity is required'],
+                min: [1, 'Quantity must be at least 1'],
+            },
+            price: {
+                type: Number,
+                required: [true, 'Total price is required'],
+                min: [0, 'Total price must be a positive number'],
+            },
+        },
+    ],
+    totalItems: {
         type: Number,
         required: [true, 'Quantity is required'],
         min: [1, 'Quantity must be at least 1']
@@ -30,6 +43,10 @@ const orderSchema = new mongoose_1.Schema({
         type: Number,
         required: [true, 'Total price is required'],
         min: [0, 'Total price must be a positive number']
+    },
+    trxID: {
+        type: String,
+        required: false
     },
 });
 exports.OrderModel = (0, mongoose_1.model)('Order', orderSchema);

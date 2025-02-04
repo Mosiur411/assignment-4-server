@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductModel = void 0;
 const mongoose_1 = require("mongoose");
-const product_interface_1 = require("./product.interface");
 const productSchema = new mongoose_1.Schema({
     title: {
         type: String,
@@ -24,11 +23,8 @@ const productSchema = new mongoose_1.Schema({
         min: [0, 'Price must be a positive number']
     },
     category: {
-        type: String,
-        enum: {
-            values: Object.values(product_interface_1.Category),
-            message: '{VALUE} is not a valid category'
-        },
+        type: mongoose_1.Schema.Types.ObjectId,
+        ref: 'Category',
         required: [true, 'Category is required']
     },
     description: {
