@@ -1,10 +1,14 @@
 import { Types } from 'mongoose';
 
 export type Order = {
-    id: string; 
     email: string; 
-    product: Types.ObjectId;
-    quantity: number; 
+    products: {
+      product: Types.ObjectId;
+      quantity: number;
+      price: number;
+    }[];
+    totalItems: number; 
     totalPrice: number; 
+    trxID: string; 
   };
   

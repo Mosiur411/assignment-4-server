@@ -5,8 +5,25 @@ import { OrderServices } from './order.service';
 const createOrder = async (req: Request, res: Response) => {
   try {
     const payload = req.body;
-    console.log('from Controller', payload)
     const result = await OrderServices.createOrderIntoDB(payload);
+    res.status(200).json({
+      success: true,
+      message: 'Order created successfully',
+      data: result,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({
+      success: false,
+      message: 'Failed to create Order',
+    });
+  }
+};
+
+const CheckoutOrder = async (req: Request, res: Response) => {
+  try {
+    const payload = req.body;
+    const result = await OrderServices.CheckoutOrderIntoDB(payload);
     res.status(200).json({
       success: true,
       message: 'Order created successfully',
@@ -138,5 +155,6 @@ export const OrderControllers = {
     getSingleOrder,
     updateOrder,
     deleteOrder,
+    CheckoutOrder,
     getTotalOrderRevenue
 };

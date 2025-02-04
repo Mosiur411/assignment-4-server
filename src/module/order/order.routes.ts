@@ -4,8 +4,9 @@ import { OrderControllers } from './order.controller';
 const router = express.Router();
 
 // Create a new Order ----------done
-router.post('/', OrderControllers.createOrder);
-
+router.post('/confirm-order', OrderControllers.createOrder);
+// checkout 
+router.post('/checkout', OrderControllers.CheckoutOrder);
 // Get all order -------- done
 router.get('/', OrderControllers.getAllOrder);
 
