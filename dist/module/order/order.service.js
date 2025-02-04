@@ -17,11 +17,6 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const order_model_1 = require("./order.model");
 const product_model_1 = require("../product/product.model");
 const stripe = require('stripe')('sk_test_51L1wwjDAYSz72lr1qJ4h8sa7mvvNNFTPGjgMeqoQtnWKYXGT7zONgAmDJAIrYSUtaDu9xroi1FCToiW90FtP4gah00eYkVqyIB');
-// Create a new Order
-/* const createOrderIntoDB = async (payload: Order) => {
-  const result = await OrderModel.create(payload);
-  return result;
-}; */
 const createOrderIntoDB = (payload) => __awaiter(void 0, void 0, void 0, function* () {
     const session = yield mongoose_1.default.startSession(); // Start transaction
     session.startTransaction();

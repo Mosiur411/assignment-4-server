@@ -1,16 +1,9 @@
 import mongoose from "mongoose";
-import config from "../../config";
 import { Order } from "./order.interface";
 import { OrderModel } from "./order.model";
 import { ProductModel } from "../product/product.model";
 const stripe = require('stripe')('sk_test_51L1wwjDAYSz72lr1qJ4h8sa7mvvNNFTPGjgMeqoQtnWKYXGT7zONgAmDJAIrYSUtaDu9xroi1FCToiW90FtP4gah00eYkVqyIB');
 
-
-// Create a new Order
-/* const createOrderIntoDB = async (payload: Order) => {
-  const result = await OrderModel.create(payload);
-  return result;
-}; */
 
 export const createOrderIntoDB = async (payload: Order) => {
   const session = await mongoose.startSession(); // Start transaction
