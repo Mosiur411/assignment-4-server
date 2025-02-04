@@ -3,7 +3,7 @@ import config from "../../config";
 import { Order } from "./order.interface";
 import { OrderModel } from "./order.model";
 import { ProductModel } from "../product/product.model";
-const stripe = require('stripe')(config.stripe_private_key);
+const stripe = require('stripe')('sk_test_51L1wwjDAYSz72lr1qJ4h8sa7mvvNNFTPGjgMeqoQtnWKYXGT7zONgAmDJAIrYSUtaDu9xroi1FCToiW90FtP4gah00eYkVqyIB');
 
 
 // Create a new Order

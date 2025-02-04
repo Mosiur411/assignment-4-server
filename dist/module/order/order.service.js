@@ -14,10 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.OrderServices = exports.createOrderIntoDB = void 0;
 const mongoose_1 = __importDefault(require("mongoose"));
-const config_1 = __importDefault(require("../../config"));
 const order_model_1 = require("./order.model");
 const product_model_1 = require("../product/product.model");
-const stripe = require('stripe')(config_1.default.stripe_private_key);
+const stripe = require('stripe')('sk_test_51L1wwjDAYSz72lr1qJ4h8sa7mvvNNFTPGjgMeqoQtnWKYXGT7zONgAmDJAIrYSUtaDu9xroi1FCToiW90FtP4gah00eYkVqyIB');
 // Create a new Order
 /* const createOrderIntoDB = async (payload: Order) => {
   const result = await OrderModel.create(payload);
