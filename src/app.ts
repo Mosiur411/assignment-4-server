@@ -18,7 +18,7 @@ const app = express()
 //parsers
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: ['http://localhost:5173'] }));
+app.use(cors({ origin: ['http://localhost:5173', 'https://bikeshopadmin.vercel.app', 'https://bikeshopstore.vercel.app'] }));
 
 
 // middleware
@@ -29,14 +29,14 @@ app.use('/api/admin', adminRouter)
 app.use('/api/user', userRouter)
 app.use('/api/blogs', blogRouter)
 app.use('/api/products', ProductRoutes)
-app.use('/api/order',auth(USER_ROLE?.user,USER_ROLE.admin), OrderRoutes)
+app.use('/api/order', auth(USER_ROLE?.user, USER_ROLE.admin), OrderRoutes)
 app.use('/api/categorys', CategoryRoutes)
 
 
 app.get('/', (req: Request, res: Response) => {
   res.send({
     status: true,
-    message:'Hello',
+    message: 'Hello',
   })
 })
 
