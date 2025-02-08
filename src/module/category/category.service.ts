@@ -4,7 +4,6 @@ import { CategoryModel } from "./category.model";
 
 // Create a new Category
 const createCategoryIntoDB = async (payload: Category) => {
-    console.log(payload)
     const result = await CategoryModel.create(payload);
     return result;
 };

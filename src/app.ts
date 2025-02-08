@@ -11,6 +11,8 @@ import { OrderRoutes } from './module/order/order.routes'
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { CategoryRoutes } from './module/category/category.routes'
+import auth from './middlewares/auth'
+import { USER_ROLE } from './module/user/user.constants'
 
 const app = express()
 //parsers
@@ -27,7 +29,7 @@ app.use('/api/admin', adminRouter)
 app.use('/api/user', userRouter)
 app.use('/api/blogs', blogRouter)
 app.use('/api/products', ProductRoutes)
-app.use('/api/order', OrderRoutes)
+app.use('/api/order',auth(USER_ROLE?.user,USER_ROLE.admin), OrderRoutes)
 app.use('/api/categorys', CategoryRoutes)
 
 

@@ -15,6 +15,8 @@ const order_routes_1 = require("./module/order/order.routes");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const cors_1 = __importDefault(require("cors"));
 const category_routes_1 = require("./module/category/category.routes");
+const auth_1 = __importDefault(require("./middlewares/auth"));
+const user_constants_1 = require("./module/user/user.constants");
 const app = (0, express_1.default)();
 //parsers
 app.use(express_1.default.json());
@@ -27,7 +29,7 @@ app.use('/api/admin', admin_router_1.default);
 app.use('/api/user', user_router_1.default);
 app.use('/api/blogs', blog_router_1.default);
 app.use('/api/products', product_routes_1.ProductRoutes);
-app.use('/api/order', order_routes_1.OrderRoutes);
+app.use('/api/order', (0, auth_1.default)(user_constants_1.USER_ROLE === null || user_constants_1.USER_ROLE === void 0 ? void 0 : user_constants_1.USER_ROLE.user, user_constants_1.USER_ROLE.admin), order_routes_1.OrderRoutes);
 app.use('/api/categorys', category_routes_1.CategoryRoutes);
 app.get('/', (req, res) => {
     res.send({

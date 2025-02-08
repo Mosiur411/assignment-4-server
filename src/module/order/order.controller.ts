@@ -40,8 +40,16 @@ const CheckoutOrder = async (req: Request, res: Response) => {
 
 const getAllOrder = async (req: Request, res: Response) => {
   try {
-    const result = await OrderServices.getAlOrdersFromDB();
+    let findData = {}
+    const user = req.user ?? {};
+    if(user?.role =='admin'){
+      findData={}
+    }else{
+      findData={ email: user.email}
+    }
 
+
+    const result = await OrderServices.getAlOrdersFromDB(findData);
     res.status(200).json({
       success: true,
       message: 'Order retrieved successfully',
@@ -76,14 +84,14 @@ const getSingleOrder = async (req: Request, res: Response) => {
 
 const updateOrder = async (req: Request, res: Response): Promise<void> => {
   try {
-    const  orderId  = req.params.orderId;
+    const orderId = req.params.orderId;
     const data = req.body;
 
 
     const result = await OrderServices.updateOrderFromDB(orderId, data);
 
     if (!result) {
-       res.status(404).json({
+      res.status(404).json({
         success: false,
         message: 'Order not found',
       });
@@ -103,14 +111,14 @@ const updateOrder = async (req: Request, res: Response): Promise<void> => {
   }
 };
 
-const deleteOrder = async (req: Request, res: Response): Promise<void>  => {
+const deleteOrder = async (req: Request, res: Response): Promise<void> => {
   try {
     const { orderId } = req.params;
 
     const result = await OrderServices.deleteOrderFromDB(orderId);
 
     if (!result) {
-        res.status(404).json({
+      res.status(404).json({
         success: false,
         message: 'Order not found',
       });
@@ -150,11 +158,11 @@ const getTotalOrderRevenue = async (req: Request, res: Response) => {
 
 
 export const OrderControllers = {
-    createOrder,
-    getAllOrder,
-    getSingleOrder,
-    updateOrder,
-    deleteOrder,
-    CheckoutOrder,
-    getTotalOrderRevenue
+  createOrder,
+  getAllOrder,
+  getSingleOrder,
+  updateOrder,
+  deleteOrder,
+  CheckoutOrder,
+  getTotalOrderRevenue
 };

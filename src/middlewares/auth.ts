@@ -12,15 +12,12 @@ const auth = (...requiredRoles: TUserRole[]) => {
       throw new Error( 'You are not authorized!');
     }
 
-    const getToken = token.split(" ")[1]
     const decoded = jwt.verify(
-      getToken,
+      token,
       "primarytestkey",
     ) as JwtPayload;
-    
   const { role, email, id } = decoded;
   const user = await User.findOne({ email });
-
 
   if (!user) {
     throw new Error('This user is not found !')

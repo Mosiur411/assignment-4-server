@@ -10,8 +10,7 @@ export const createOrderIntoDB = async (payload: Order) => {
   session.startTransaction();
 
   try {
-    console.log(payload)
-    // Check stock for each product
+ 
     for (const item of payload.products) {
       const product = await ProductModel.findById(item.product).session(session);
 
@@ -34,22 +33,13 @@ export const createOrderIntoDB = async (payload: Order) => {
     await session.commitTransaction(); // Commit transaction
     session.endSession();
 
-    return result;
+    // return result;
   } catch (error) {
     await session.abortTransaction(); // Rollback on failure
     session.endSession();
     throw error;
   }
 };
-
-
-
-
-
-
-
-
-
 
 
 
@@ -72,8 +62,9 @@ const CheckoutOrderIntoDB = async (payload: Order) => {
 };
 
 // Get all Orders 
-const getAlOrdersFromDB = async () => {
-  const result = await OrderModel.find();
+const getAlOrdersFromDB = async (findData:any) => {
+ 
+  const result = await OrderModel.find(findData).populate('products.product');
   return result;
 };
 

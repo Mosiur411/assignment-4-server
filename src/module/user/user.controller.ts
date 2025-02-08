@@ -27,9 +27,17 @@ const getUser = catchAsync(async (req, res) => {
     data: result,
   })
 })
+const getProfile = catchAsync(async (req, res) => {
+  const data=req.user
+  const result = await userService.getPofile(data?.email)
+  sendResponse(res, {
+    statusCode: StatusCodes.OK,
+    message: 'Users getting successfully',
+    data: result,
+  })
+})
 
 const getSingleUser = catchAsync(async (req, res) => {
-  console.log(req.params)
   const userId = req.params.userId
 
   const result = await userService.getSingleUser(userId)
@@ -70,4 +78,5 @@ export const userController = {
   getSingleUser,
   updateUser,
   deleteUser,
+  getProfile
 }

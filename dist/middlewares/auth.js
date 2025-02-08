@@ -21,8 +21,7 @@ const auth = (...requiredRoles) => {
         if (!token) {
             throw new Error('You are not authorized!');
         }
-        const getToken = token.split(" ")[1];
-        const decoded = jsonwebtoken_1.default.verify(getToken, "primarytestkey");
+        const decoded = jsonwebtoken_1.default.verify(token, "primarytestkey");
         const { role, email, id } = decoded;
         const user = yield user_model_1.default.findOne({ email });
         if (!user) {

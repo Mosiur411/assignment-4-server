@@ -27,7 +27,6 @@ const register = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 
     });
 }));
 const login = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.body);
     const result = yield auth_service_1.AuthService.login(req.body);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_codes_1.StatusCodes.ACCEPTED,

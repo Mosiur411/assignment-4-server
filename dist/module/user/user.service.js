@@ -23,6 +23,10 @@ const getUser = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield user_model_1.default.find({ role: 'user' });
     return result;
 });
+const getPofile = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield user_model_1.default.find({ email: email });
+    return result;
+});
 const getSingleUser = (id) => __awaiter(void 0, void 0, void 0, function* () {
     //   const result = await User.findOne({name:"habi jabi"})
     const result = yield user_model_1.default.findById(id);
@@ -44,4 +48,5 @@ exports.userService = {
     getSingleUser,
     updateUser,
     deleteUser,
+    getPofile
 };

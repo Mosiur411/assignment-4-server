@@ -32,7 +32,6 @@ const updateBlog = async (id: string, data: IBlog) => {
 }
 
 const deleteBlog = async (blogId: string, userId: string) => {
-  //  console.log(blogId, userId)
 
    const result = await Blog.findByIdAndDelete({_id: blogId, another:userId})
    if(result) {

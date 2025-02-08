@@ -21,8 +21,6 @@ const createOrderIntoDB = (payload) => __awaiter(void 0, void 0, void 0, functio
     const session = yield mongoose_1.default.startSession(); // Start transaction
     session.startTransaction();
     try {
-        console.log(payload);
-        // Check stock for each product
         for (const item of payload.products) {
             const product = yield product_model_1.ProductModel.findById(item.product).session(session);
             if (!product) {
@@ -39,7 +37,7 @@ const createOrderIntoDB = (payload) => __awaiter(void 0, void 0, void 0, functio
         const result = yield order_model_1.OrderModel.create([payload], { session });
         yield session.commitTransaction(); // Commit transaction
         session.endSession();
-        return result;
+        // return result;
     }
     catch (error) {
         yield session.abortTransaction(); // Rollback on failure
@@ -61,8 +59,8 @@ const CheckoutOrderIntoDB = (payload) => __awaiter(void 0, void 0, void 0, funct
     return { paymentIntent, result };
 });
 // Get all Orders 
-const getAlOrdersFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield order_model_1.OrderModel.find();
+const getAlOrdersFromDB = (findData) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield order_model_1.OrderModel.find(findData).populate('products.product');
     return result;
 });
 // Get single Order following by id

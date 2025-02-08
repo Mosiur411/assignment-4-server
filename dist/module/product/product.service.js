@@ -22,7 +22,7 @@ const createProductIntoDB = (payload) => __awaiter(void 0, void 0, void 0, funct
 });
 // Get all products
 const getAllProductsFromDB = () => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_model_1.ProductModel.find();
+    const result = yield product_model_1.ProductModel.find().populate('category');
     return result;
 });
 // Get single product following by id
@@ -31,7 +31,7 @@ const getSingleProdutFromDB = (id) => __awaiter(void 0, void 0, void 0, function
         // console.error('Invalid ID format');
         return null;
     }
-    const result = yield product_model_1.ProductModel.findById(id);
+    const result = yield product_model_1.ProductModel.findById(id).populate('category');
     return result;
 });
 // Update a product by ID

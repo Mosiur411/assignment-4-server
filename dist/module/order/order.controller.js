@@ -48,8 +48,17 @@ const CheckoutOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 const getAllOrder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
     try {
-        const result = yield order_service_1.OrderServices.getAlOrdersFromDB();
+        let findData = {};
+        const user = (_a = req.user) !== null && _a !== void 0 ? _a : {};
+        if ((user === null || user === void 0 ? void 0 : user.role) == 'admin') {
+            findData = {};
+        }
+        else {
+            findData = { email: user.email };
+        }
+        const result = yield order_service_1.OrderServices.getAlOrdersFromDB(findData);
         res.status(200).json({
             success: true,
             message: 'Order retrieved successfully',

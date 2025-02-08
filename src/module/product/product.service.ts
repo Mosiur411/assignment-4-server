@@ -10,7 +10,7 @@ const createProductIntoDB = async (payload: Product): Promise<Product> => {
 
 // Get all products
 const getAllProductsFromDB = async () => {
-  const result = await ProductModel.find();
+  const result = await ProductModel.find().populate('category');
   return result;
 };
 
@@ -21,7 +21,7 @@ const getSingleProdutFromDB = async (id: string) => {
     return null;
   }
 
-  const result = await ProductModel.findById(id); 
+  const result = await ProductModel.findById(id).populate('category'); 
   return result;
 };
 

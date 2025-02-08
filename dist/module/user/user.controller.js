@@ -34,8 +34,16 @@ const getUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0
         data: result,
     });
 }));
+const getProfile = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const data = req.user;
+    const result = yield user_service_1.userService.getPofile(data === null || data === void 0 ? void 0 : data.email);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_codes_1.StatusCodes.OK,
+        message: 'Users getting successfully',
+        data: result,
+    });
+}));
 const getSingleUser = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(req.params);
     const userId = req.params.userId;
     const result = yield user_service_1.userService.getSingleUser(userId);
     (0, sendResponse_1.default)(res, {
@@ -69,4 +77,5 @@ exports.userController = {
     getSingleUser,
     updateUser,
     deleteUser,
+    getProfile
 };

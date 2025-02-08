@@ -13,7 +13,6 @@ exports.CategoryServices = void 0;
 const category_model_1 = require("./category.model");
 // Create a new Category
 const createCategoryIntoDB = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(payload);
     const result = yield category_model_1.CategoryModel.create(payload);
     return result;
 });

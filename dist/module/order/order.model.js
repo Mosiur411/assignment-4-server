@@ -6,7 +6,6 @@ const orderSchema = new mongoose_1.Schema({
     email: {
         type: String,
         required: [true, 'Please provide your email'],
-        unique: true,
         validate: {
             validator: function (value) {
                 return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(value);
@@ -50,3 +49,29 @@ const orderSchema = new mongoose_1.Schema({
     },
 });
 exports.OrderModel = (0, mongoose_1.model)('Order', orderSchema);
+/*
+
+
+{
+  email: 'mosiur@gmail.com',
+  products: [
+    {
+      product: '67a09b1e9d35af19f98d70df',
+      quantity: 4,
+      price: 20,
+      _id: '67a6fd3c9756b868587819bd'
+    }
+  ],
+  totalItems: 4,
+  totalPrice: 80,
+  _id: '67a6fd3c9756b868587819bc',
+ 
+
+
+
+
+
+
+
+
+*/ 

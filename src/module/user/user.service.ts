@@ -11,6 +11,10 @@ const getUser = async () => {
   const result = await User.find({ role: 'user' })
   return result
 }
+const getPofile = async (email:string) => {
+  const result = await User.find({ email: email })
+  return result
+}
 
 const getSingleUser = async (id: string) => {
   //   const result = await User.findOne({name:"habi jabi"})
@@ -36,4 +40,5 @@ export const userService = {
   getSingleUser,
   updateUser,
   deleteUser,
+  getPofile
 }
