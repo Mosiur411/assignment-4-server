@@ -43,4 +43,3 @@ const productSchema = new mongoose_1.Schema({
     },
 });
 exports.ProductModel = (0, mongoose_1.model)('Product', productSchema);
-
