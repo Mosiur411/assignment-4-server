@@ -11,7 +11,7 @@ const productSchema = new mongoose_1.Schema({
     author: {
         type: String,
         required: [true, 'Author name is required'],
-        minlength: [3, 'Author name must be at least 3 characters long']
+        minlength: [1, 'Author name must be at least 3 characters long']
     },
     image: {
         type: String,
