@@ -3,7 +3,7 @@
   Assignment  project - 4 🚀
 </h1>
 
- # 📝 Blog Management API
+ # 📝 Bike Shop Management API
 
 
 I developed a powerful backend for a blogging platform, enabling both user and admin operations with full CRUD functionality, authentication, and authorization. Users can create, read, update, and delete their blogs, while admins have extended privileges to manage all content.
