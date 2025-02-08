@@ -9,14 +9,14 @@ const createProduct = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Book created successfully',
+      message: 'Bike created successfully',
       data: result,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to create Book',
+      message: 'Failed to create Bike',
     });
   }
 };
@@ -27,14 +27,14 @@ const getAllProducts = async (req: Request, res: Response) => {
 
     res.status(200).json({
       success: true,
-      message: 'Books retrieved successfully',
+      message: 'Bike retrieved successfully',
       data: result,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to retrieve Books',
+      message: 'Failed to retrieve Bike',
     });
   }
 };
@@ -45,14 +45,14 @@ const getSingleProduct = async (req: Request, res: Response) => {
     const result = await ProductServices.getSingleProdutFromDB(productId);
     res.status(200).json({
       success: true,
-      message: 'Book retrieved successfully',
+      message: 'Bike retrieved successfully',
       data: result,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to retrieve Book',
+      message: 'Failed to retrieve Bike',
     });
   }
 };
@@ -75,14 +75,14 @@ const updateProduct = async (req: Request, res: Response): Promise<void> => {
 
     res.status(200).json({
       success: true,
-      message: 'Book updated successfully',
+      message: 'Bike updated successfully',
       data: result,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to update Book',
+      message: 'Failed to update Bike',
     });
   }
 };
@@ -103,14 +103,14 @@ const deleteProduct = async (req: Request, res: Response): Promise<void>  => {
 
     res.status(200).json({
       success: true,
-      message: 'Book deleted successfully',
+      message: 'Bike deleted successfully',
       data: result,
     });
   } catch (err) {
     console.error(err);
     res.status(500).json({
       success: false,
-      message: 'Failed to delete Book',
+      message: 'Failed to delete Bike',
     });
   }
 };

@@ -17,7 +17,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const result = yield product_service_1.ProductServices.createProductIntoDB(payload);
         res.status(200).json({
             success: true,
-            message: 'Book created successfully',
+            message: 'Bike created successfully',
             data: result,
         });
     }
@@ -25,7 +25,7 @@ const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Failed to create Book',
+            message: 'Failed to create Bike',
         });
     }
 });
@@ -34,7 +34,7 @@ const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         const result = yield product_service_1.ProductServices.getAllProductsFromDB();
         res.status(200).json({
             success: true,
-            message: 'Books retrieved successfully',
+            message: 'Bike retrieved successfully',
             data: result,
         });
     }
@@ -42,7 +42,7 @@ const getAllProducts = (req, res) => __awaiter(void 0, void 0, void 0, function*
         console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Failed to retrieve Books',
+            message: 'Failed to retrieve Bike',
         });
     }
 });
@@ -52,7 +52,7 @@ const getSingleProduct = (req, res) => __awaiter(void 0, void 0, void 0, functio
         const result = yield product_service_1.ProductServices.getSingleProdutFromDB(productId);
         res.status(200).json({
             success: true,
-            message: 'Book retrieved successfully',
+            message: 'Bike retrieved successfully',
             data: result,
         });
     }
@@ -60,7 +60,7 @@ const getSingleProduct = (req, res) => __awaiter(void 0, void 0, void 0, functio
         console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Failed to retrieve Book',
+            message: 'Failed to retrieve Bike',
         });
     }
 });
@@ -77,7 +77,7 @@ const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         res.status(200).json({
             success: true,
-            message: 'Book updated successfully',
+            message: 'Bike updated successfully',
             data: result,
         });
     }
@@ -85,7 +85,7 @@ const updateProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Failed to update Book',
+            message: 'Failed to update Bike',
         });
     }
 });
@@ -101,7 +101,7 @@ const deleteProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
         res.status(200).json({
             success: true,
-            message: 'Book deleted successfully',
+            message: 'Bike deleted successfully',
             data: result,
         });
     }
@@ -109,7 +109,7 @@ const deleteProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         console.error(err);
         res.status(500).json({
             success: false,
-            message: 'Failed to delete Book',
+            message: 'Failed to delete Bike',
         });
     }
 });

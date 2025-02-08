@@ -23,9 +23,8 @@ Key features include advanced search and filtering for efficient content discove
 *   **dotenv**
 *   **http-status-codes**
 *   **JWT**
-*   **bycrpt**j
+*   **bycrpt**
 *   **Stripe**
-
 
 * * *
 
@@ -70,6 +69,11 @@ Key features include advanced search and filtering for efficient content discove
 - **Update Blog**: `PATCH /api/categorys/:id` 
 - **Delete Blog**: `DELETE /api/categorys/:id` 
 - **View Blogs**: `GET /api/categorys` 
+### Order Management
+- **Create Blog**: `GET /api/order` 
+- **Update Blog**: `POST /api/cehckout/` 
+- **Update Blog**: `POST /api/confirm-order` 
+- **Delete Blog**: `DELETE /api/order/:id` 
 
 ### Admin Actions
 - **Block User**: `PATCH /api/admin/users/:userId/block`
@@ -94,3 +98,5 @@ All errors are returned in a structured format with clear messages and status co
 
 Thank you for exploring this project! 🚀
 # assignment-4-server
+# Server Link :  https://bikeshopserver.vercel.app
+# Github Link :  https://github.com/Mosiur411/bikeshopserver
